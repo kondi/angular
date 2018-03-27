@@ -37,6 +37,7 @@ describe('TransferState', () => {
   let doc: Document;
 
   const TEST_KEY = makeStateKey<number>('test');
+  const BOOLEAN_KEY = makeStateKey<boolean>('boolean');
   const DELAYED_KEY = makeStateKey<string>('delayed');
 
   beforeEach(() => {
@@ -80,9 +81,9 @@ describe('TransferState', () => {
 
   it('supports setting and accessing value \'false\' via get', () => {
     const transferState: TransferState = TestBed.inject(TransferState);
-    transferState.set(TEST_KEY, false);
-    expect(transferState.get(TEST_KEY, true)).toBe(false);
-    expect(transferState.hasKey(TEST_KEY)).toBe(true);
+    transferState.set(BOOLEAN_KEY, false);
+    expect(transferState.get(BOOLEAN_KEY, true)).toBe(false);
+    expect(transferState.hasKey(BOOLEAN_KEY)).toBe(true);
   });
 
   it('supports setting and accessing value \'null\' via get', () => {
